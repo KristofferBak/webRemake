@@ -4,4 +4,31 @@ block content
   h1= title
   p Welcome to #{title}
 
-   
+   div.bs-docs-section
+        div.row
+            div
+                div.page-header
+                    h2#typography= title
+                div.bs-component
+                    table.table.table-striped
+                        thead
+                            tr
+                                th Name
+                                th
+                                th Email
+                                th
+                        tbody
+                            for object in users
+                                tr
+                                    td= object.name
+                                    td                                      
+                                        td= object.email
+                                        td
+                                          div.btn-group.btn-lg
+                                              a.btn.btn-primary.btn-lg(href="/user/" + object._id + "/workouts")= 'Workouts '
+                                                  span.badge= object.workouts.length                                                      
+                        form.form-inline(method='POST' action='/register')
+                                tr                                    
+                                   td
+                                      div.btn-group.btn-lg
+                                          button.btn.btn-primary.btn-lg(type='submit') Register New User
