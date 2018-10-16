@@ -3,3 +3,15 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  form.form-inline(method='POST' action='/register')
+                                tr                                    
+                                   td
+                                      div.btn-group.btn-lg
+                                          button.btn.btn-primary.btn-lg(type='submit') Register New User
+
+  form.form-inline(method='POST' action='/login')
+                                tr                                    
+                                   td
+                                      div.btn-group.btn-lg
+                                          button.btn.btn-primary.btn-lg(type='submit') Login
