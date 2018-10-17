@@ -14,11 +14,13 @@ router.get('/users', ctrlUsers.getUsers);
 
 //workout pages
 router.get('/workouts', ctrlWorkouts.getWorkouts);
+router.get('/user/:userId/workouts', ctrlWorkouts.getUserWorkouts);
 
 //exercise pages
-router.get('/exercises', ctrlExercises.getExercises);
+router.get('/user/:userID/workouts/:workoutId/exercises', ctrlExercises.getUserExercises);
 
 //activity pages
 router.get('/activities', ctrlActivities.getActivities);
+router.get('/user/:userID/workouts/:workoutId/createActivity');
 
 module.exports = router;

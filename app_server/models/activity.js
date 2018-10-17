@@ -1,21 +1,15 @@
 const mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
-const userSchema = Schema({
-    email:{
-        type: String,
-        unique: true,
-        required: true
+const activitySchema = Schema({
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     },
-    name: {
-        type: String,
-        required: true
-    },    
-    workouts: [{
+    workoutId:{
         type: Schema.Types.ObjectId,
         ref: 'Workout'
-    }],
+    }    
 });
 
-const User = mongoose.model('User', userSchema);
+const Activity = mongoose.model('Activity', activitySchema);

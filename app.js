@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 require('./app_server/models/db');
 require('./app_server/models/user');
+require('./app_server/models/workout');
+require('./app_server/models/exercise');
+require('./app_server/models/activity');
 var logger = require('morgan');
 
 var indexRouter = require('./app_server/routes/index');
