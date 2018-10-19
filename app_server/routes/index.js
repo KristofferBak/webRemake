@@ -18,6 +18,7 @@ router.get('/user/:userId/workouts', ctrlWorkouts.getUserWorkouts);
 
 //exercise pages
 router.get('/user/:userID/workouts/:workoutId/exercises', ctrlExercises.getUserExercises);
+router.get('/exercises', ctrlExercises.getExercises);
 
 //activity pages
 router.get('/activities', ctrlActivities.getActivities);

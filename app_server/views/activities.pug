@@ -3,3 +3,21 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  div.bs-docs-section
+      div.row
+          div
+              div.page-header
+                  h1#typography= title
+              div.bs-component
+                  table.table.table-striped
+                      thead
+                          tr
+                              th User ID
+                              th Workout ID
+                              th
+                      tbody
+                          for object in activities
+                              tr
+                                  td= object.userId
+                                  td= object.workoutId

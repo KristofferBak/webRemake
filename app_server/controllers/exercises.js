@@ -3,7 +3,13 @@ const Workout = mongoose.model('Workout');
 const Exercise = mongoose.model('Exercise');
 
 const getExercises = function(req, res){
-    res.render('exercises', {title: 'Exercises'});
+    Exercise.find({})
+    .exec((err, exercises) => {
+        res.render('exercises',
+         {title: 'Exercises',
+         exercises: exercises     
+        });
+    });    
 };
 
 const getUserExercises = function(req,res){
@@ -17,7 +23,6 @@ const getUserExercises = function(req,res){
         });
     });
 };
-
 
 module.exports = {
     getExercises,

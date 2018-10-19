@@ -3,13 +3,12 @@ const Workout = mongoose.model('Workout');
 const User = mongoose.model('User');
 
 const getWorkouts = function(req,res){   
-    User.find({})
-    .populate('workouts')
-    .exec((err, user) => {
+    User.find({})    
+    .exec((err, workouts) => {
         res.render("workouts", {
             title: 'Workouts',
-            workouts: user.workouts,
-            userId: req.params.userId
+            workouts: workouts,
+           // userId: req.params.userId
         });
     });
 };
