@@ -14,15 +14,15 @@ const getWorkouts = function(req,res){
 };
 
 const getUserWorkouts = function(req,res){
-    User.findById(req.params.userId)
-    .populate('workouts')
-    .exec((err, user) => {
-        res.render("workouts", {
-            title: 'Workouts',
-            workouts: user.workouts,
-            userId: req.params.userId
-        });
-    });
+    if(
+        req.userId == !null || req.userId !== ""
+    ){  User.findById(req.params.userId)
+        .populate('workouts').exec((err, user) => {res.render("workouts", {title: 'Workouts', workouts: user.workouts,userId: req.params.userId});
+        });}
+        else{
+            
+        }
+  
 };
 
 module.exports={
