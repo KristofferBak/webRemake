@@ -10,10 +10,23 @@ const getUsers = function(req, res){
     });
 };
 
-module.exports = {
-    getUsers
+const createUser = function(req, res) {
+    User.create({
+        name: req.body.name,
+        email: req.body.email
+        }, (err, user) => {
+            res.redirect('/users');
+        });
 };
 
-/*module.exports.getUsers = function(req, res){
-    res.render('users', {title: 'Users'});
-};*/
+const goToRegister = function(req, res){
+    res.render('register', {
+        title: 'Register new user, bitch'
+    })
+}
+
+module.exports = {
+    getUsers,
+    createUser,
+    goToRegister
+};
