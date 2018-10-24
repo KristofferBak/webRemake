@@ -27,6 +27,6 @@ router.get('/user/:userID/workouts/:workoutId/createActivity');
 
 //register
 router.get('/register', ctrlUsers.goToRegister);
-router.get('/createUser', ctrlUsers.createUser); //mangler at lave view
+router.post('/createUser', ctrlUsers.createUser); 
 
 module.exports = router;
