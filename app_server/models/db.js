@@ -1,6 +1,11 @@
 
 const mongoose = require('mongoose');
 
+require('./exercise');
+require('./workout');
+require('./user');
+require('./activity');
+
 var dbURI = 'mongodb://localhost/webRemake';
 mongoose.connect(dbURI);
 
