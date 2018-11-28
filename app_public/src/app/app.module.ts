@@ -11,7 +11,8 @@ import { TestCompComponent } from './test-comp/test-comp.component';
     TestCompComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [TestCompComponent]

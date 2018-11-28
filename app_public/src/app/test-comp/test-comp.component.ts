@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { EventManagerPlugin } from '@angular/platform-browser/src/dom/events/event_manager';
-import { userInfo } from 'os';
+import {FitnessAppDataService} from '../fitness-app-data.service';
+//import { from } from 'rxjs';
+//import { EventManagerPlugin } from '@angular/platform-browser/src/dom/events/event_manager';
+//import { userInfo } from 'os';
 
 export class User {
   email: string;
@@ -16,24 +18,19 @@ export class User {
 })
 export class TestCompComponent implements OnInit {
 
-  constructor() { } 
+  constructor(private fitnessAppDataService: FitnessAppDataService) { } 
 
-  users: User[] = [{
-    email: 'test@email.dk',
-    name: 'testUser',
-    workouts: ['workout1','workout2','workout3'],
-    amountOfWorkouts: 3
-  },{
-    email: 'test2@gmail.com',
-    name: "fjolset",
-    workouts: ['workout1','workout2'],
-    amountOfWorkouts: 2
-  }];
+  public users: User[];
+
+  private getUsers(): void{
+    this.fitnessAppDataService.getUsers().then(foundUsers => this.users = foundUsers);
+  }  
 
   //amount = function name(params:User) {
   //  params.workouts.length;
   //}
 
   ngOnInit() {
+    this.getUsers();
   }
 }
